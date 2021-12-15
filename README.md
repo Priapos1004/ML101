@@ -84,6 +84,9 @@ Your first prototype is now in production, but this is not the end. There are ma
 
 # Step 1: install anconda
 
+Anaconda is a collection of useful python packages like sklearn or pandas that you will use very often while doing machine learning. Furthermore, anaconda can be used for managing your virtual environments and running jupyter notebooks.
+- [anaconda website](https://www.anaconda.com/products/individual)
+
 <a name="virual_environment"/>
 
 # Step 2: usage of virtual environments
@@ -126,6 +129,6 @@ How you structure your folders is your choice, but at the end, it has to be unde
     /model.pkl (saved model)
     /<name>.pkl (if I also need to save an encoder, scaler, ...)
 ```
-The advantage of having the same structure in every project is that others can easily use your projects with always the same workflow. 
+The advantage of having the same structure in every project is that others can easily run your projects with always the same workflow. 
 
 (here: data_prep.py --> train_and_save.py --> deploy.py --> consume.py)
