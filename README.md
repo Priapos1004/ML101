@@ -29,3 +29,10 @@ This repository is created to help people to get started with Machine Learning a
 - regressor   (features --> values)
   - one can also use regressors for classification --> in some cases this can be helpful
   - e.g.: What is the chance (in percentage) to fail a class based on information about a person?
+
+(5) evaluate model
+- look at different metrics like f1-score, recall, precision, ...
+- classificationreport and confusionmetrics are helpful to evaluate classifiers
+
+(6) repeate steps 3, 4, and 5
+- 
