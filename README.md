@@ -61,7 +61,7 @@ There are two main types of models you will probably use: classifier and regress
 - try different preproceesing --> different encoder, scaler, vectorizer or normilizer
 - hypertuning model
 - try different models
---> you can do this manually by yourself or use helpful libraries like `TPOT` which will do the upper steps for you (code for the tpot classifier/regressor)
+--> you can do this manually by yourself or use helpful libraries like [TPOT](#tpot) which will do the upper steps for you (code for the tpot classifier/regressor)
 
 ## code in scripts/.py-files
 ### (7) create prototype
@@ -299,3 +299,52 @@ How you structure your folders is your choice, but at the end, it has to be unde
 The advantage of having the same structure in every project is that others can easily run your projects with always the same workflow. 
 
 (here: data_prep.py --> train_and_save.py --> deploy.py --> consume.py)
+
+<a name="tpot"/>
+
+## TPOT library
+
+The TPOT library will save a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertune the models. The [link](http://epistasislab.github.io/tpot/) to there website where they explain in more detail what they exactly do.
+
+### installation of tpot
+
+Run the following commands in the terminal:
+
+```sh
+pip install deap update_checker tqdm stopit xgboost
+pip install tpot
+```
+### example code for the tpot classifier
+
+```
+from tpot import TPOTClassifier
+from sklearn.datasets import load_digits
+from sklearn.model_selection import train_test_split
+
+digits = load_digits()
+X_train, X_test, y_train, y_test = train_test_split(digits.data, digits.target,
+                                                    train_size=0.75, test_size=0.25)
+
+pipeline_optimizer = TPOTClassifier(generations=5, population_size=20, cv=5,
+                                    random_state=42, verbosity=2)
+pipeline_optimizer.fit(X_train, y_train)
+print(pipeline_optimizer.score(X_test, y_test))
+pipeline_optimizer.export('tpot_exported_pipeline.py')
+```
+
+### example code for the tpot regressor
+
+```
+from tpot import TPOTRegressor
+from sklearn.datasets import load_boston
+from sklearn.model_selection import train_test_split
+
+housing = load_boston()
+X_train, X_test, y_train, y_test = train_test_split(housing.data, housing.target,
+                                                    train_size=0.75, test_size=0.25, random_state=42)
+
+tpot = TPOTRegressor(generations=5, population_size=50, verbosity=2, random_state=42)
+tpot.fit(X_train, y_train)
+print(tpot.score(X_test, y_test))
+tpot.export('tpot_boston_pipeline.py')
+```
