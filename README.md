@@ -6,7 +6,7 @@ This repository is created to help people to get started with Machine Learning a
 ```(1) data collection --> (2) data exploration --> (3) data preprocessing --> (4) train model --> (5) evaluate model --> (6) repeat steps 3, 4 and 5 until your model is usable ==> (7) create prototype --> (8) implement more features/fix bugs```
 
 ## code in jupyter notebooks
-**(1) data collection** - the base of your model is the data, so choose wisely
+###(1) data collection - the base of your model is the data, so choose wisely
 
 Often, you will get specific data for a project and train your model on it; however, this data can be not enough or very messy and in this case, you can use data with a similar structure (e.g.: from Kaggle) to train your model on it and later finetune it on your specific data.
 - [Kaggle.com](https://www.kaggle.com/)
@@ -15,18 +15,18 @@ Often, you will get specific data for a project and train your model on it; howe
 **(2) data exploration** - gain some information about your data
 
 The better you know your dataset, the easier it is for you to understand why your model makes it prediction how it does. Furthermore, if you know the deficits of your data, you can do something against it.
-- [ ] NaN cells
-- [ ] duplicates
-- [ ] balance of target class
+- NaN cells
+- duplicates
+- balance of target class
 
 **(3) data preprocessing** - bring the data in a good shape for your model
 
 After step 2, you know now the deficits of your data and you can do something. Also, you have to convert text to vectors and encode categorical features so that your model can work with them.
-- [ ] delete/fill NaN cells
-- [ ] handle duplicates
-- [ ] upsample or downsample data
-- [ ] convert text to vectors
-- [ ] encode/scale/normilize features
+- delete/fill NaN cells
+- handle duplicates
+- upsample or downsample data
+- convert text to vectors
+- encode/scale/normilize features
 
 **(4) train model** - choose a model and train it
 
