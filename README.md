@@ -161,7 +161,10 @@ Now that we know how to use virtual environments, we can start with notebooks. T
 (2) with the `terminal`
 - open the `terminal`
 - `activate` your environment you want to use
-- run ```sh jupyter notebook ```
+- run 
+```sh
+jupyter notebook
+```
 
 <a name="scripts"/>
 
