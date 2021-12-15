@@ -84,12 +84,24 @@ Your first prototype is now in production, but this is not the end. There are ma
 
 # Step 1: install anconda
 
-Anaconda is a collection of useful python packages like sklearn or pandas that you will use very often while doing machine learning. Furthermore, anaconda can be used for managing your virtual environments and running jupyter notebooks.
+Anaconda is a collection of useful python packages like sklearn or pandas that you will use very often while doing machine learning (So, you can save time with not doing *pip install* for all these packages that you will need). Furthermore, anaconda can be used for managing your virtual environments and running jupyter notebooks.
 - [anaconda website](https://www.anaconda.com/products/individual)
 
 <a name="virual_environment"/>
 
 # Step 2: usage of virtual environments
+
+You use the `base` environment when you do commands in the terminal or running py-scripts (if you do not change it). This means that you install (e.g.: with *pip*) all libraries in this environment. That works only until a certain point because the different libraries need different versions of their subpackages and that can produce conflicts. Some of these conflicts can be solved and others not. In the worst case, you cannot use pip anymore and there will be a ton of errors while executing your code. The solution are virtual environments. A virtual environment is a separate environment in which you can install packages and the different environments do not interact with each other. So, you can have for every project a different environment (this brings some advantages that will be mentoined later).
+
+## create a virtual environment
+
+First of all, you have to create an environment
+
+```sh conda create new_env```
+
+Second, you have to activate it
+
+```sh conda activate new_env```
 
 <a name="jupyter_notebook"/>
 
