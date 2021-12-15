@@ -7,17 +7,20 @@ This repository is created to help people to get started with Machine Learning a
 
 ## code in jupyter notebooks
 (1) data collection - the base of your model is the data, so choose wisely
+
 Often, you will get specific data for a project and train your model on it; however, this data can be not enough or very messy and in this case, you can use data with a similar structure (e.g.: from Kaggle) to train your model on it and later finetune it on your specific data.
 - Kaggle.com
 - client data
 
 (2) data exploration - gain some information about your data
+
 The better you know your dataset, the easier it is for you to understand why your model makes it prediction how it does. Furthermore, if you know the deficits of your data, you can do something against it.
 - NaN cells
 - duplicates
 - balance of target class
 
 (3) data preprocessing - bring the data in a good shape for your model
+
 After step 2, you know now the deficits of your data and you can do something. Also, you have to convert text to vectors and encode categorical features so that your model can work with them.
 - delete/fill NaN cells
 - handle duplicates
@@ -26,6 +29,7 @@ After step 2, you know now the deficits of your data and you can do something. A
 - encode/scale/normilize features
 
 (4) train model - choose a model and train it
+
 There are two main types of models you will probably use: classifier and regressors.
 - classifier  (features --> classes)
   - special case: two classes (binary classification) --> there are models specificly for this
@@ -46,6 +50,7 @@ There are two main types of models you will probably use: classifier and regress
 
 ## code in scripts/.py-files
 (7) create prototype
+
 Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script.
 For example, you could create following scripts:
 - data_prep.py --> takes the raw data and returns the preprocessed data
