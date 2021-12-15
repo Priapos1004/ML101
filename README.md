@@ -1,7 +1,10 @@
 # ML101
 This repository is created to help people to get started with Machine Learning and give some tips&amp;tricks for programing with python
 
+**table of content**
+[general workflow](#general_workflow) 
 
+<a name="general_workflow"/>
 # general workflow with machine learning
 ```(1) data collection --> (2) data exploration --> (3) data preprocessing --> (4) train model --> (5) evaluate model --> (6) repeat steps 3, 4 and 5 until your model is usable ==> (7) create prototype --> (8) implement more features/fix bugs```
 
