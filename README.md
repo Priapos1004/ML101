@@ -36,6 +36,7 @@ The better you know your dataset, the easier it is for you to understand why you
 - NaN cells
 - duplicates
 - balance of target class
+- look into specific rows (some times it reveals dependencies between columns)
 
 ### (3) data preprocessing - bring the data in a good shape for your model
 
