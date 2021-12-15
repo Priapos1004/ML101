@@ -13,6 +13,8 @@ This repository is created to help people to get started with Machine Learning a
 
 [Step 4: script/.py-files](#scripts) 
 
+[Step 5: some last tips](#tips) 
+
 <a name="general_workflow"/>
 
 # general workflow with machine learning
@@ -64,13 +66,19 @@ There are two main types of models you will probably use: classifier and regress
 ## code in scripts/.py-files
 ### (7) create prototype
 
-Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script.
+Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have raw data --> preprocessed data --> train and save model --> deploy model
 For example, you could create following scripts:
 - data_prep.py --> takes the raw data and returns the preprocessed data
 - model.py --> class of model with train and predict function (can contain several models that are called to generate the output)
 - train.py --> takes the preprocessed data, trains the model on it and saves the model (e.g.: with the `pickle` library)
 - deploy.py --> takes the saved models and deploys them in the cloud (e.g.: azure, AWS, ...)
 - consume.py --> takes data, sends them as a request to the deployment endpoint in the cloud and returns the prediction of the model
+
+### (8) implement new features and fix bugs
+
+Your first prototype is now in production, but this is not the end. There are maybe some bugs in the code that have to be fixed or some conflicts with other operating systems. Furthermore, you can start now to find new practical features to implement and create prototype 2/3/... For testing, you can use jupyter notebooks again and afterwards implement the new stuff in your script structure.
+- implement new features
+- fix bugs/solve problems and conflicts
 
 <a name="anaconda"/>
 
@@ -87,3 +95,37 @@ For example, you could create following scripts:
 <a name="scripts"/>
 
 # Step 4: usage of scripts/py-files
+
+<a name="tips"/>
+
+# Step 5: some last tips
+
+## folder structure
+
+How you structure your folders is your choice, but at the end, it has to be understandable for other users which means it should not be too messy. I personally like the following structure:
+```
+/project name
+  /data
+    /01_raw
+    /02_processed
+  /notebooks
+    /<name>.ipynb
+  /scripts
+    /data_prep
+      /data_prep.py
+      /utils.py (some times if I want to separate the preprocessing function when I need a lot of preprocessing)
+    /deployment
+      /deploy.py
+      /consume.py
+      /score.py (script for the scoring endpoint)
+    /models
+      /model.py (to separate the model class from the train and save script)
+      /train_and_save.py
+      /utils.py (if I need some functions that make the train_and_save script overcrowded)
+  /artifacts
+    /model.pkl (saved model)
+    /<name>.pkl (if I also need to save an encoder, scaler, ...)
+```
+The advantage of having the same structure in every project is that others can easily use your projects with always the same workflow. 
+
+(here: data_prep.py --> train_and_save.py --> deploy.py --> consume.py)
