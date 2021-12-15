@@ -4,9 +4,13 @@ This repository is created to help people to get started with Machine Learning a
 **table of content:**
 
 [general workflow](#general_workflow) 
+
 [Step 1: install anaconda](#anaconda) 
+
 [Step 2: virtual environments](#virual_environment)
+
 [Step 3: jupyter notebook](#jupyter_notebook) 
+
 [Step 4: script/.py-files](#scripts) 
 
 <a name="general_workflow"/>
