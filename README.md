@@ -45,6 +45,7 @@ After step 2, you know now the deficits of your data and you can do something. A
 - upsample or downsample data
 - convert text to vectors
 - encode/scale/normilize features
+- split dataset into train and test data
 
 ### (4) train model - choose a model and train it
 
