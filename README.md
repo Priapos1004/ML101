@@ -1,5 +1,5 @@
 # ML101
-This <ins>repository<\ins> is created to help people to get started with Machine Learning and give some tips&amp;tricks for programing with python
+This repository is created to help people to get started with Machine Learning and give some tips&amp;tricks for programing with python
 
 **table of content:**
 
@@ -196,8 +196,8 @@ jupyter nbextensions_configurator enable --user
 
 Nbextensions has a lot of different extensions and all of them are in a way useful, but to get started with them I would recommend the following ones (I do not list the default ones here):
 
-- `Autopep8` - this extension can **solve simple syntax errors** in your notebook
-- `Collapsible Headings` - this extension allows you to **minimize header blocks** which makes it easier to work with big notebooks
+- `Autopep8` - this extension can <ins>solve simple syntax errors</ins> in your notebook
+- `Collapsible Headings` - this extension allows you to <ins>minimize header blocks</ins> which makes it easier to work with big notebooks
 - `ExecuteTime` - this extension **times the execution** of each code cell and you do not have to use `%%time`
 - `Hinterland` - this extension enables **auto-completion** which makes the programing way faster
 - `Initialization cells` - this extension allows you to mark cells as **initialization cells** that means they are ran when you load the notebook. You can, for example, load libraries or datasets you always need directly (more a quality of life upgrade)
