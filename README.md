@@ -64,7 +64,7 @@ There are two main types of models you will probably use: classifier and regress
 - try different preproceesing --> different encoder, scaler, vectorizer or normilizer
 - hypertuning model
 - try different models
---> you can do this manually by yourself or use helpful libraries like [TPOT](#tpot) which will do the upper steps for you (code for the tpot classifier/regressor)
+--> you can do this manually by yourself or use helpful libraries like [TPOT](#tpot) which will do the upper steps for you (code for the tpot classifier/regressor in the *TPOT library* section)
 
 ## code in scripts/.py-files
 ### (7) create prototype
