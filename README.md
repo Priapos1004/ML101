@@ -309,7 +309,7 @@ The advantage of having the same structure in every project is that others can e
 
 ## TPOT library
 
-The TPOT library will save a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertune the models. The [link](http://epistasislab.github.io/tpot/) to there website where they explain in more detail what they exactly do.
+The TPOT library will save a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertune the models. The [link](http://epistasislab.github.io/tpot/) to there website where they explain in more detail what they exactly do and to there [github repository](https://github.com/EpistasisLab/tpot).
 
 ### installation of tpot
 
