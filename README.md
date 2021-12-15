@@ -15,6 +15,9 @@ This repository is created to help people to get started with Machine Learning a
 
 [Step 5: some last tips](#tips) 
 
+- [folder structure](#folder_structure)
+- [TPOT library](#tpot)
+
 <a name="general_workflow"/>
 
 # general workflow with machine learning
@@ -269,6 +272,8 @@ flake8 .
 <a name="tips"/>
 
 # Step 5: some last tips
+
+<a name="folder_structure"/>
 
 ## folder structure
 
