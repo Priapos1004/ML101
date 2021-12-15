@@ -97,11 +97,15 @@ You use the `base` environment when you do commands in the terminal or running p
 
 First of all, you have to create an environment
 
-```sh conda create new_env```
+```sh
+conda create new_env
+```
 
 Second, you have to activate it
 
-```sh conda activate new_env```
+```sh
+conda activate new_env
+```
 
 <a name="jupyter_notebook"/>
 
