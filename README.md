@@ -210,7 +210,61 @@ Nbextensions has a lot of different extensions and all of them are in a way usef
 
 <a name="scripts"/>
 
-# Step 4: usage of scripts/py-files
+# Step 4: usage of scripts/.py-files
+
+There are some things that are good to know about scripts.
+
+## structure
+
+Normally, you have a general structure in your script like:
+
+```
+library imports
+
+functions/class
+
+if __name__ == "__main__":
+  ... (some code that is executed if the script is dircetly ran. It will not be executed if you import functions/class from this script into another)
+```
+
+It is good to start functions and classes with a `docstring` that describes the parameter and output of a function besides the normal comments because this makes it way easier to read your code. There are some [conventions](https://www.python.org/dev/peps/pep-0257/) how to do this. Furthermore, there is also a huge list with other conventions for coding with python besides this which are called [PEP 8](https://www.python.org/dev/peps/pep-0008/). It is not bad to know some of these, but at the end, you do not have to know all of them and, as long as your code is clean, readable and understandable, you should be fine.
+
+## recommended libraries for improving your code
+
+I mentioned in the part before that it is import to have readable code, but you do not have to this all by your own. There are some helpful libraries that will support you.
+
+### pip install isort
+
+`isort` is a library to sort imports alphabetically, and automatically separated into sections and by type. You can run it for one file:
+```sh
+isort <filename>.py
+```
+or recursively that means it will run for all files in all subfolder from your current working directory:
+```sh
+isort .
+```
+
+### pip install black
+
+`black` is the uncompromising Python code formatter. It deletes unnecessary whitespaces and formats your lists, dictionaries and similar datatypes. You can run this for one file:
+```sh
+black <filename>.py
+```
+or recursively that means it will run for all files in all subfolder from your current working directory:
+```sh
+black .
+```
+
+### pip install flake8
+
+`flake8` is a tool for style guide enforcement. It outputs you the lines in the script that have a unclean style and how to clean them up. You can run this for one file:
+```sh
+flake8 <filename>.py
+```
+or recursively that means it will run for all files in all subfolder from your current working directory:
+```sh
+flake8 .
+```
 
 <a name="tips"/>
 
