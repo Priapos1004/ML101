@@ -281,8 +281,8 @@ How you structure your folders is your choice, but at the end, it has to be unde
 ```
 /project name
   /data
-    /01_raw
-    /02_processed
+    /1_raw
+    /2_processed
   /notebooks
     /<name>.ipynb
   /scripts
