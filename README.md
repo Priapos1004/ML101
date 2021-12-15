@@ -101,10 +101,20 @@ First of all, you have to create an environment
 conda create new_env
 ```
 
-Second, you have to activate it
+Second, you have to activate it (`(base)` should change to `(new_env)` in your terminal)
 
 ```sh
 conda activate new_env
+```
+
+## save a virtual environment to a .yaml-file
+
+Virtual environments can take quite some storage on your computer that is why you should save an environment to a .yaml-file and delete it when you will not use it in some time. Furthermore, others that will run your projects will not always have to install all the different libraries you used (this can take some time and nerves). So, when you save your environment and put it to the rest of your code, one can just create this environment from the .yaml-file and start working with all the libraries.
+
+For saving the environment, you have to `activate` it first and then run the following command. The file will be saved in your current working directory.
+
+```sh
+conda env export > conda.yaml
 ```
 
 <a name="jupyter_notebook"/>
