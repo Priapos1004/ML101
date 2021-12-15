@@ -141,7 +141,7 @@ conda info --envs
 
 ## clone a virtual environment
 
-I recommend not to work in the `base` environment and always to activate a different one. In the `base` environment are all standard libraries installed that one can need woithout any conflicts and what I like to do is to clone it. So that you have a new `experimental` environment for example that you can use for testing non-project related stuff. You normally do not do this with project related stuff because the .yaml-files for projects should be minimal.
+I recommend not to work in the `base` environment and always to activate a different one. In the `base` environment are all standard libraries installed that one could need (the packages one installed with anaconda) without any conflicts and what I like to do is to clone it. So that you have a new `experimental` environment for example that you can use for testing non-project related stuff. You normally do not do this with project related stuff because the .yaml-files of a project should be minimal.
 
 ```sh
 conda create --name cloned_new_env --clone new_env
@@ -150,6 +150,18 @@ conda create --name cloned_new_env --clone new_env
 <a name="jupyter_notebook"/>
 
 # Step 3: usage of jupyter notebooks
+
+Now that we know how to use virtual environments, we can start with notebooks. There are two ways to launch jupyter notebooks:
+
+(1) with the `anaconda navigator`
+- open the `anaconda navigator`
+- select the environment you want to use in the upper-left corner (default: `base`)
+- click launch jupyter notebook (It will start a localhost)
+
+(2) with the `terminal`
+- open the `terminal`
+- `activate` your environment you want to use
+- run ```sh jupyter notebook ```
 
 <a name="scripts"/>
 
