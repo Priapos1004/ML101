@@ -98,7 +98,7 @@ You use the `base` environment when you do commands in the terminal or running p
 First of all, you have to create an environment
 
 ```sh
-conda create new_env
+conda create --name new_env
 ```
 
 Second, you have to activate it (`(base)` should change to `(new_env)` in your terminal)
@@ -115,6 +115,36 @@ For saving the environment, you have to `activate` it first and then run the fol
 
 ```sh
 conda env export > conda.yaml
+```
+
+## create a virtual environment from a .yaml-file
+
+The name of the environment is the one inside the .yaml-file.
+
+```sh
+conda env create -f conda.yaml
+```
+
+## remove a virtual environment and its dependencies
+
+```sh
+conda remove --name new_env --all
+```
+
+## show a list of all virtual environments
+
+It is good to have an overview of all the environments to see which one are not needed anymore.
+
+```sh
+conda info --envs
+```
+
+## clone a virtual environment
+
+I recommend not to work in the `base` environment and always to activate a different one. In the `base` environment are all standard libraries installed that one can need woithout any conflicts and what I like to do is to clone it. So that you have a new `experimental` environment for example that you can use for testing non-project related stuff. You normally do not do this with project related stuff because the .yaml-files for projects should be minimal.
+
+```sh
+conda create --name cloned_new_env --clone new_env
 ```
 
 <a name="jupyter_notebook"/>
