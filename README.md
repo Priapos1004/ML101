@@ -149,20 +149,20 @@ conda create --name cloned_new_env --clone new_env
 
 <a name="jupyter_notebook"/>
 
-# Step 3: usage of jupyter notebooks
+# Step 3: usage of jupyter notebook
 
 Now that we know how to use virtual environments, we can start with notebooks. 
 
-## start jupyter notebooks
+## start jupyter notebook
 
-There are two ways to launch jupyter notebooks:
+There are two ways to launch jupyter notebook:
 
-(1) with the `anaconda navigator`
+### (1) with the anaconda navigator
 - open the `anaconda navigator`
 - select the environment you want to use in the upper-left corner (default: `base`)
 - click launch jupyter notebook (It will start a localhost)
 
-(2) with the `terminal`
+### (2) with the terminal
 - open the `terminal`
 - `activate` your environment you want to use
 - run in the `terminal` (It will start a localhost)
@@ -171,20 +171,25 @@ There are two ways to launch jupyter notebooks:
 jupyter notebook
 ```
 
-## jupyter notebooks extensions [recommended]
+## jupyter notebook nbextensions [recommended]
 
 Jupyter notebook is a nice program, but there are [extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions.html) that can make your life way easier.
 
-### installation of extensions
+### installation of nbextensions
 
 I would recommend to create a new virtual environment `exten` for the extensions with cloning the `base` environment because the library tends to have conflicts with other bigger libraries and you can use the extensions in notebooks with other environments. You can just not edit the currently activated extensions in other environments. Therefore, you have to start jupyter notebooks with `exten`.
 
+To get these `nbextensions` to know, I recommend to read this [article](https://stephanosterburg.gitbook.io/scrapbook/data-science/jupiter-notebook-tips-and-tricks). It also contains other helpful libraries.
+
+To install the extensions in a new environment copy and run the following commands in the terminal:
+
 ```sh
 conda create --name exten --clone base
-```
-```sh
-ls
-pwd
+conda activate exten
+pip install jupyter_contrib_nbextensions
+pip install jupyter_nbextensions_configurator
+jupyter contrib nbextension install --user
+jupyter nbextensions_configurator enable --user
 ```
 
 <a name="scripts"/>
