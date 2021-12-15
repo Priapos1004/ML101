@@ -1,9 +1,13 @@
 # ML101
 This repository is created to help people to get started with Machine Learning and give some tips&amp;tricks for programing with python
 
-**table of content**
+**table of content:**
 
 [general workflow](#general_workflow) 
+[Step 1: install anaconda](#anaconda) 
+[Step 2: virtual environments](#virual_environment)
+[Step 3: jupyter notebook](#jupyter_notebook) 
+[Step 4: script/.py-files](#scripts) 
 
 <a name="general_workflow"/>
 
@@ -63,3 +67,19 @@ For example, you could create following scripts:
 - train.py --> takes the preprocessed data, trains the model on it and saves the model (e.g.: with the `pickle` library)
 - deploy.py --> takes the saved models and deploys them in the cloud (e.g.: azure, AWS, ...)
 - consume.py --> takes data, sends them as a request to the deployment endpoint in the cloud and returns the prediction of the model
+
+<a name="anaconda"/>
+
+# Step 1: install anconda
+
+<a name="virual_environment"/>
+
+# Step 2: usage of virtual environments
+
+<a name="jupyter_notebook"/>
+
+# Step 3: usage of jupyter notebooks
+
+<a name="scripts"/>
+
+# Step 4: usage of scripts/py-files
