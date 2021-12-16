@@ -228,7 +228,7 @@ $RECYCLE.BIN/
 *.lnk
 
 # ignore data/2_processed and artifacts
-**/data/2_processed
-**/artifacts
+**/data/2_processed/*
+**/artifacts/*
 
 # End of https://www.toptal.com/developers/gitignore/api/python,jupyternotebooks,visualstudiocode,macos,windows
