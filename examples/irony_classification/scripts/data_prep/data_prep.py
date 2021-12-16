@@ -74,8 +74,8 @@ def preprocess():
     # convert the arrays back to pd.Dataframes
     X_train_cv = pd.DataFrame(X_train_cv)
     X_test_cv = pd.DataFrame(X_test_cv)
-    #y_train = pd.DataFrame(X_train_cv)
-    #y_test = pd.DataFrame(X_test_cv)
+    y_train = pd.DataFrame(X_train_cv)
+    y_test = pd.DataFrame(X_test_cv)
 
     # save processed data (index=False is very important otherwise the old indices will saved as new column)
     print("... save processed data")
