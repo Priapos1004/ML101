@@ -71,7 +71,10 @@ There are two main types of models you will probably use: classifier and regress
 ## code in scripts/.py-files
 ### (7) create prototype
 
-Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have raw data --> preprocessed data --> train and save model --> deploy model
+Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have 
+
+raw data --> preprocessed data --> train and save model --> deploy model
+
 For example, you could create following scripts:
 - data_prep.py --> takes the raw data and returns the preprocessed data
 - model.py --> class of model with train and predict function (can contain several models that are called to generate the output)
@@ -90,7 +93,10 @@ Your first prototype is now in production, but this is not the end. There are ma
 # Step 1: install anconda
 
 Anaconda is a collection of useful python packages like sklearn or pandas that you will use very often while doing machine learning (So, you can save time with not doing *pip install* for all these packages that you will need). Furthermore, anaconda can be used for managing your virtual environments and running jupyter notebooks.
+
 - [anaconda website](https://www.anaconda.com/products/individual)
+
+if you never heard anything about notebooks and virtual environments, you should start to get to know jupyter notebook first before diving into the more advanced stuff. Therefore just open the `Anaconda Navigator` after installing anaconda and launch jupyter notebook. Try a little bit and after you have a brief overview come back and learn how to set-up your working environment a bit more beneficial :-)
 
 <a name="virual_environment"/>
 
