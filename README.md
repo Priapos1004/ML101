@@ -52,7 +52,7 @@ After step 2, you know now the deficits of your data and you can do something. A
 
 There are two main types of models you will probably use: classifier and regressors.
 - classifier  (features --> classes)
-  - special case: two classes (binary classification) --> there are models specificly for this
+  - special case: two classes ([binary classification](https://www.learndatasci.com/glossary/binary-classification/)) --> there are models specificly for this
   - e.g.: Is a cat, a dog or a horse on a pictures?
 - regressor   (features --> values)
   - one can also use regressors for classification --> in some cases this can be helpful
