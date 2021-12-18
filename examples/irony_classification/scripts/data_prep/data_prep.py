@@ -2,9 +2,7 @@
 import re
 
 import pandas as pd
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import LabelEncoder
 
 # path to raw data and paths for the preprocessed data
 data_path = "data/1_raw/data.csv"
@@ -16,11 +14,13 @@ y_test_path = "data/2_processed/y_test.csv"
 
 def clean_text(txt: str):
     """
+    cleans a text from hashtags and urls
     param: text in string format
     output: text without hashtags
     """
     txt = str(txt).lower()
     txt = re.sub("#\w+", " ", txt)
+    txt = re.sub("((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z]){2,6}([a-zA-Z0-9\.\&\/\?\:@\-_=#])*", " ", txt)
     txt = txt.strip()  # removes double whitespaces
     return txt
 
@@ -28,10 +28,12 @@ def clean_text(txt: str):
 def preprocess():
     """
     function to preprocess the raw data and save the processed data
+    param: none --> paths are at the top of the file
+    output: preprocessed data files
     """
 
     print("preprocessing started...")
-    
+
     # read data
     print("... read data")
     df = pd.read_csv(data_path)
