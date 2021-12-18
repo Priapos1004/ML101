@@ -2,7 +2,6 @@ import mlflow.pyfunc
 import numpy as np
 import pandas as pd
 from sentence_transformers import SentenceTransformer
-from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import LabelEncoder

@@ -1,5 +1,4 @@
 import mlflow.pyfunc
-from model import irony_model
 
 
 def model_loader(model_name):
