@@ -20,7 +20,11 @@ def clean_text(txt: str):
     """
     txt = str(txt).lower()
     txt = re.sub("#\w+", " ", txt)
-    txt = re.sub("((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z]){2,6}([a-zA-Z0-9\.\&\/\?\:@\-_=#])*", " ", txt)
+    txt = re.sub(
+        "((http|https)\:\/\/)?[a-zA-Z0-9\.\/\?\:@\-_=#]+\.([a-zA-Z]){2,6}([a-zA-Z0-9\.\&\/\?\:@\-_=#])*",
+        " ",
+        txt,
+    )
     txt = txt.strip()  # removes double whitespaces
     return txt
 

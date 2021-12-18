@@ -1,12 +1,18 @@
 import mlflow.pyfunc
+import numpy as np
 import pandas as pd
+from sentence_transformers import SentenceTransformer
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import classification_report
 from sklearn.preprocessing import LabelEncoder
+from tqdm import tqdm
 
 
 class irony_model(mlflow.pyfunc.PythonModel):
+    def load_context(self, context):
+        self.language_model = SentenceTransformer("quora-distilbert-multilingual")
+
     def predict(self, context, data):
         """
         function to predict if there is irony in a strings
@@ -18,31 +24,28 @@ class irony_model(mlflow.pyfunc.PythonModel):
         print()
         print("starting predicting...")
 
-        # iterate through the data to predict for each text
-        results = []
-        print("... 0/", len(data), " predictions")
-        for i in range(len(data)):
+        # vectorize text
+        text_vec = self.build_embeddings(data)
 
-            # vectorize text
-            text_cv = self.countvectorizer.transform([data[i]]).toarray()
+        # predict text
+        pred = self.model.predict(text_vec)
 
-            # predict text
-            pred = self.model.predict(text_cv)
+        # convert prediction (int) to label (str)
+        encoded_pred = list(self.labelencoder.inverse_transform(pred))
 
-            # convert prediction (int) to label (str)
-            encoded_pred = list(self.labelencoder.inverse_transform(pred))
-
-            # add prediction to result list
-            results.append(encoded_pred)
-
-            print("... ", (i + 1), "/", len(data), " predictions")
-
-        print()
         print("--> prediction completed")
 
-        return results
+        return encoded_pred
 
-    def train(self, X_train_path, y_train_path, X_test_path, y_test_path):
+    def train(
+        self,
+        X_train_path,
+        y_train_path,
+        X_test_path,
+        y_test_path,
+        X_train_pretrained_path,
+        X_test_pretrained_path,
+    ):
         """
         function that trains the irony model, the labelencoder for the class column and the vectorizer for the tweets
         param: paths to the processed data
@@ -70,19 +73,39 @@ class irony_model(mlflow.pyfunc.PythonModel):
 
         # vectorize text
         print("... vectorize tweets")
-        self.countvectorizer = CountVectorizer(max_features=3000)
-        X_train_cv = self.countvectorizer.fit_transform(X_train).toarray()
-        X_test_cv = self.countvectorizer.transform(X_test).toarray()
+        try:
+            X_train_pretrained = pd.read_csv(X_train_pretrained_path)
+            X_test_pretrained = pd.read_csv(X_test_pretrained_path)
+            print(
+                "- found already vectorized data. Delete it if you want to create new one"
+            )
+        except:
+            print("- did not find already vectorized data --> create new one")
+            X_train_pretrained = self.build_embeddings(X_train)
+            X_test_pretrained = self.build_embeddings(X_test)
+            X_train_pretrained.to_csv(X_train_pretrained_path, index=False)
+            X_test_pretrained.to_csv(X_test_pretrained_path, index=False)
+            print("- vectorized data created and saved")
 
         # training irony model
         print("... start training model")
-        # breakpoint()
-        self.model = LogisticRegression()
-        self.model.fit(X_train_cv, y_train["class_encoded"])
+        self.model = LogisticRegression(max_iter=1000)
+        self.model.fit(X_train_pretrained, y_train["class_encoded"])
 
         # give out some metrics
         print("... classificationreport: ")
-        pred = self.model.predict(X_test_cv)
+        pred = self.model.predict(X_test_pretrained)
         print(classification_report(y_test["class_encoded"], pred))
 
         print("--> training script completed")
+
+    def build_embeddings(self, data):
+
+        # Embedding creation
+        print("- creating embeddings")
+        message_embeddings = [self.language_model.encode(str(i)) for i in tqdm(data)]
+        ar = np.asarray(message_embeddings)
+        df_BERT = pd.DataFrame(ar)
+        print("- embeddings created")
+
+        return df_BERT
