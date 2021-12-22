@@ -56,7 +56,7 @@ python scripts/models/test.py
 
 ### building the infrastructure for deployment
 
-To deploy in azure, one needs to create a resource group and a machine learning workspace in it. The `create_inf.py` script does this for you. Just run the following command:
+To deploy in azure, one needs to create a resource group and a machine learning workspace in it. The `create_inf.py` script does this for you. Just add your *subscription id* to the script and run the following command:
 
 ```sh
 python scripts/deployment/create_inf.py
