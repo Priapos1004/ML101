@@ -4,6 +4,8 @@ dependencies:
 - python=3.8
 - pip
 - pip:
+  - azureml-defaults
+  - mlflow
   - scikit-learn
   - sentence-transformers
   - tqdm
