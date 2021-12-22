@@ -10,6 +10,9 @@ from tqdm import tqdm
 
 class irony_model(mlflow.pyfunc.PythonModel):
     def load_context(self, context):
+        '''
+        function that is called when the model is initialized (constructor of mlflow pyfunc model)
+        '''
         self.language_model = SentenceTransformer("quora-distilbert-multilingual")
 
     def predict(self, context, data):
@@ -99,6 +102,11 @@ class irony_model(mlflow.pyfunc.PythonModel):
         print("--> training script completed")
 
     def build_embeddings(self, data):
+        '''
+        function that creates embeddings of text
+        param: dataframe, list or array (everthing one can iterate through)
+        output: dataframe with the embeddings (always 768 columns)
+        '''
 
         # Embedding creation
         print("- creating embeddings")

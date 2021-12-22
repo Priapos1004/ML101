@@ -6,6 +6,7 @@ if __name__ == "__main__":
     subscription_id = "..."  # insert your own subscription id
     resource_group = "irony"
     location = "West Europe"
+    
     azure_workspace = Workspace.create(
         name=workspace_name,
         subscription_id=subscription_id,

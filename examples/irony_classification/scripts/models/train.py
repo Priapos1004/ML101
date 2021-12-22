@@ -11,6 +11,11 @@ X_test_pretrained_path = "data/2_processed/X_test_pretrained.csv"
 
 
 def train_and_save(model_name: str):
+    '''
+    function to create, train and save in artifacts object from the model class
+    param: model name
+    output: saved model in artifacts folder
+    '''
 
     model = irony_model()
     model.train(
