@@ -4,7 +4,7 @@
 
 ## create virtual environment for the project
 
-To create a virtual environment from `conda.yaml` and activate the environment, run the following commands. The environment has no packages for launching jupyter notebook to keep it minimal for the deployment. Use it for running the scripts. For running the notebooks, use your *experimental environment* (or clone your base environment) and install `sentence-transoformers` additionally (*pip install sentence-transformers*).
+To create a virtual environment from `conda.yaml` and activate the environment, run the following commands. The environment has no packages for launching jupyter notebook to keep it minimal for the deployment. Use it for running the scripts. For running the notebooks, use your *experimental environment* (or clone your base environment) and install `sentence-transoformers` additionally (`pip install sentence-transformers´).
 
 ```sh
 conda env create -f conda.yaml
