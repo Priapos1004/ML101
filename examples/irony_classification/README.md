@@ -1,10 +1,19 @@
 # irony classification example
 
-**Note:** all scripts have to be ran from the *irony_classification folder*
+**Note:** all commands have to be ran from the *irony_classification folder*
+
+## create virtual environment for the project
+
+To create a virtual environment from `conda.yaml` and activate the environment, run the following commands. The environment has no packages for launching jupyter notebook to keep it minimal for the deployment. Use it for running the scripts. For running the notebooks, use your *experimental environment* (or clone your base environment) and install `sentence-transoformers` additionally (*pip install sentence-transformers*).
+
+```sh
+conda env create -f conda.yaml
+conda activate irony_env
+```
 
 ## workflow for creating, training and testing the model
 
-### learn something about the data
+### investigate data and some models in jupyter notebook
 
 run the notebook `irony classification.ipynb`
 
