@@ -2,7 +2,7 @@
 
 **Note:** all commands have to be ran from the *irony_classification folder*
 
-## create virtual environment for the project
+## create virtual environment for the project [editings needed]
 
 To create a virtual environment from `conda.yaml` and activate the environment, run the following commands. The environment has no packages for launching jupyter notebook to keep it minimal for the deployment. Use it for running the scripts. For running the notebooks, use your *experimental environment* (or clone your base environment) and install `sentence-transoformers` additionally (`pip install sentence-transformers`).
 
