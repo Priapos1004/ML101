@@ -17,6 +17,7 @@ This repository is created to help people to get started with Machine Learning a
 
 - [folder structure](#folder_structure)
 - [TPOT library](#tpot)
+- [some nice literature](#literature)
 
 <a name="general_workflow"/>
 
@@ -366,3 +367,9 @@ tpot.fit(X_train, y_train)
 print(tpot.score(X_test, y_test))
 tpot.export('tpot_boston_pipeline.py')
 ```
+
+<a name="literature"/>
+
+## some nice literature sources
+
+- [Cheatsheets](https://medium.com/@anushkhabajpai/top-data-science-cheat-sheets-ml-dl-python-r-sql-maths-statistics-5239d4568225) for different topics to get an overview
