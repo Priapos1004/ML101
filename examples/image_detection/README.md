@@ -20,4 +20,4 @@ pip install opencv-python
 
 - just run the notebook
 - interesting [article about YOLOv3](https://cloudxlab.com/blog/setup-yolo-with-darknet/)
-- another nice [library](https://github.com/OlafenwaMoses/ImageAI) (not usable with M1, yet)
+- another nice library: [imageai](https://github.com/OlafenwaMoses/ImageAI) (not usable with M1, yet)
