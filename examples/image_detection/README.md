@@ -3,13 +3,13 @@
 ## required libraries
 
 ### tesseract-lang [installation with homebrew]
-sh```
+```
 brew install tesseract-lang
 ```
 
 ### pip-libraries
 
-sh```
+```
 pip install pytesseract
 pip install ipython
 pip install Pillow
