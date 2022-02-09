@@ -17,11 +17,17 @@ This repository is created to help people to get started with Machine Learning a
 
 - [folder structure](#folder_structure)
 - [TPOT library](#tpot)
+- [some nice literature](#literature)
 
 <a name="general_workflow"/>
 
 # general workflow with machine learning
-```(1) data collection --> (2) data exploration --> (3) data preprocessing --> (4) train model --> (5) evaluate model --> (6) repeat steps 3, 4 and 5 until your model is usable ==> (7) create prototype --> (8) implement more features/fix bugs```
+```
+(1) data collection --> (2) data exploration 
+--> (3) data preprocessing --> (4) train model --> (5) evaluate model 
+--> (6) repeat steps 3, 4 and 5 until your model is usable 
+==> (7) create prototype --> (8) implement more features/fix bugs
+```
 
 ## code in jupyter notebooks
 ### (1) data collection - the base of your model is the data, so choose wisely
@@ -52,7 +58,7 @@ After step 2, you know now the deficits of your data and you can do something. A
 
 There are two main types of models you will probably use: classifier and regressors.
 - classifier  (features --> classes)
-  - special case: two classes (binary classification) --> there are models specificly for this
+  - special case: two classes ([binary classification](https://www.learndatasci.com/glossary/binary-classification/)) --> there are models specificly for this
   - e.g.: Is a cat, a dog or a horse on a pictures?
 - regressor   (features --> values)
   - one can also use regressors for classification --> in some cases this can be helpful
@@ -71,7 +77,10 @@ There are two main types of models you will probably use: classifier and regress
 ## code in scripts/.py-files
 ### (7) create prototype
 
-Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have raw data --> preprocessed data --> train and save model --> deploy model
+Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have 
+
+raw data --> preprocessed data --> train and save model --> deploy model
+
 For example, you could create following scripts:
 - data_prep.py --> takes the raw data and returns the preprocessed data
 - model.py --> class of model with train and predict function (can contain several models that are called to generate the output)
@@ -90,7 +99,10 @@ Your first prototype is now in production, but this is not the end. There are ma
 # Step 1: install anconda
 
 Anaconda is a collection of useful python packages like sklearn or pandas that you will use very often while doing machine learning (So, you can save time with not doing *pip install* for all these packages that you will need). Furthermore, anaconda can be used for managing your virtual environments and running jupyter notebooks.
+
 - [anaconda website](https://www.anaconda.com/products/individual)
+
+if you never heard anything about notebooks and virtual environments, you should start to get to know jupyter notebook first before diving into the more advanced stuff. Therefore just open the `Anaconda Navigator` after installing anaconda and launch jupyter notebook. Try a little bit and after you have a brief overview come back and learn how to set-up your working environment a bit more beneficial :-)
 
 <a name="virual_environment"/>
 
@@ -355,3 +367,9 @@ tpot.fit(X_train, y_train)
 print(tpot.score(X_test, y_test))
 tpot.export('tpot_boston_pipeline.py')
 ```
+
+<a name="literature"/>
+
+## some nice literature sources
+
+- [Cheatsheets](https://medium.com/@anushkhabajpai/top-data-science-cheat-sheets-ml-dl-python-r-sql-maths-statistics-5239d4568225) for different topics to get an overview
