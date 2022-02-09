@@ -4,9 +4,18 @@ dependencies:
 - python=3.8
 - pip
 - pip:
-  - azureml-defaults
-  - mlflow
+  - cloudpickle
   - scikit-learn
   - sentence-transformers
   - tqdm
+  - mlflow==1.21.0
+  - joblib
+  - absl-py
+  - azureml
+  - azureml-mlflow
+  - azureml-core
+  - azureml-defaults
+  - azureml-contrib-services
+  - gin-config
+  - pydantic
 name: irony_env
