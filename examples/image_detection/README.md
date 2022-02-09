@@ -14,6 +14,7 @@ pip install pytesseract
 pip install ipython
 pip install Pillow
 pip install opencv-python
+pip install face-recognition
 ```
 
 ## get started
