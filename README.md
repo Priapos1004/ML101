@@ -23,9 +23,14 @@ This repository is created to help people to get started with Machine Learning a
 
 # general workflow with machine learning
 ```
-(1) data collection --> (2) data exploration 
+(1) data collection 
+
+--> (2) data exploration 
+
 --> (3) data preprocessing --> (4) train model --> (5) evaluate model 
+
 --> (6) repeat steps 3, 4 and 5 until your model is usable 
+
 ==> (7) create prototype --> (8) implement more features/fix bugs
 ```
 
@@ -38,7 +43,7 @@ Often, you will get specific data for a project and train your model on it; howe
 
 ### (2) data exploration - gain some information about your data
 
-The better you know your dataset, the easier it is for you to understand why your model makes it prediction how it does. Furthermore, if you know the deficits of your data, you can do something against it.
+The better you know your dataset, the easier it is for you to understand why your model makes its prediction the way it does. Furthermore, if you know the deficits of your data, you can do something against it.
 - NaN cells
 - duplicates
 - balance of target class
@@ -46,7 +51,7 @@ The better you know your dataset, the easier it is for you to understand why you
 
 ### (3) data preprocessing - bring the data in a good shape for your model
 
-After step 2, you know now the deficits of your data and you can do something. Also, you have to convert text to vectors and encode categorical features so that your model can work with them.
+After step 2, you know now the deficits of your data and you can take actions. You also have to convert text to vectors and encode categorical features so that your model can work with them.
 - delete/fill NaN cells
 - handle duplicates
 - upsample or downsample data
@@ -59,18 +64,18 @@ After step 2, you know now the deficits of your data and you can do something. A
 There are two main types of models you will probably use: classifier and regressors.
 - classifier  (features --> classes)
   - special case: two classes ([binary classification](https://www.learndatasci.com/glossary/binary-classification/)) --> there are models specificly for this
-  - e.g.: Is a cat, a dog or a horse on a pictures?
+  - e.g.: Is a cat, a dog or a horse in the photo?
 - regressor   (features --> values)
   - one can also use regressors for classification --> in some cases this can be helpful
-  - e.g.: What is the chance (in percentage) to fail a class based on information about a person?
+  - e.g.: Based on the profits of the last years, what will be the profit of this year? (sales forecasting)
 
 ### (5) evaluate model - use meaningful key figures to evaluate the performance of your model
-- look at different metrics like f1-score, recall, precision, ...
+- look at different metrics like f1-score, r2-score, recall, precision, ...
 - classificationreport and confusionmetrics are helpful to evaluate classifiers
 
 ### (6) repeate steps 3, 4, and 5 - improve the metrics of the model so that it is usable
-- try different preproceesing --> different encoder, scaler, vectorizer or normilizer
-- hypertuning model
+- try different preprocessings --> different encoder, scaler, vectorizer or normilizer
+- hyperparameter tuning of the model
 - try different models
 --> you can do this manually by yourself or use helpful libraries like [TPOT](#tpot) which will do the upper steps for you (code for the tpot classifier/regressor in the *TPOT library* section)
 
@@ -126,7 +131,7 @@ conda activate new_env
 
 ## save a virtual environment to a .yaml-file
 
-Virtual environments can take quite some storage on your computer that is why you should save an environment to a .yaml-file and delete it when you will not use it in some time. Furthermore, others that will run your projects will not always have to install all the different libraries you used (this can take some time and nerves). So, when you save your environment and put it to the rest of your code, one can just create this environment from the .yaml-file and start working with all the libraries.
+Virtual environments can take quite some storage on your computer that is why you should save an environment to a .yaml-file and delete it when you will not use it in the next time. Furthermore, others that will run your projects will not always have to install all the different libraries you used (this can take some time and nerves). So, when you save your environment and put it to the rest of your code, one can just create this environment from the .yaml-file and start working with all the libraries.
 
 For saving the environment, you have to `activate` it first and then run the following command. The file will be saved in your current working directory.
 
@@ -161,7 +166,7 @@ conda info --envs
 I recommend not to work in the `base` environment and always to activate a different one. In the `base` environment are all standard libraries installed that one could need (the packages one installed with anaconda) without any conflicts and what I like to do is to clone it. So that you have a new `experimental` environment for example that you can use for testing non-project related stuff. You normally do not do this with project related stuff because the .yaml-files of a project should be minimal.
 
 ```sh
-conda create --name cloned_new_env --clone new_env
+conda create --name new_env --clone env_you_want_to_clone
 ```
 
 <a name="jupyter_notebook"/>
@@ -182,7 +187,7 @@ There are two ways to launch jupyter notebook:
 ### (2) with the terminal
 - open the `terminal`
 - `activate` your environment you want to use
-- run in the `terminal` (It will start a localhost)
+- run in the `terminal` the following command (It will start a localhost)
 
 ```sh
 jupyter notebook
@@ -190,7 +195,7 @@ jupyter notebook
 
 ## jupyter notebook nbextensions [recommended]
 
-Jupyter notebook is a nice program, but there are [extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions.html) that can make your life way easier. (Maybe one should first get used to the normal notebooks and the basic shortcuts and so on, but after this one should directly use these)
+Jupyter notebook is a nice program, but there are [extensions](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions.html) that can make your life way easier. (Maybe one should first get used to the normal notebooks and the basic shortcuts and so on, but (after this) one should directly use these)
 
 ### installation of nbextensions
 
@@ -213,7 +218,7 @@ jupyter nbextensions_configurator enable --user
 
 Nbextensions has a lot of different extensions and all of them are in a way useful, but to get started with them I would recommend the following ones (I do not list the default ones here):
 
-- `Autopep8` - this extension can `solve simple syntax errors` in your notebook
+- `Autopep8` - this extension can `automatically` change your code to the `pep8 coding standards` in your notebook
 - `Collapsible Headings` - this extension allows you to `minimize header blocks` which makes it easier to work with big notebooks
 - `ExecuteTime` - this extension `times the execution` of each code cell and you do not have to use *%%time*
 - `Hinterland` - this extension enables `auto-completion` which makes the programing way faster
@@ -221,7 +226,7 @@ Nbextensions has a lot of different extensions and all of them are in a way usef
 - `isort formatter` - this extension can `sort your library imports` alphabetically grouped by module import and so (makes the library imports more readable)
 - `Scratchpad` - this extension enables an `expandable cell for quick testing` like current state of a variable (otherwise you always have for the program unnecessary cells that makes the notebook less readable)
 - `ScrollDown` - this extension `automatically scrolls down` when you have a long output (quality of life upgrade)
-- `Snippets Menu` - this extension is the best of all. It allows you to `save code snippets` in a given format *(file will be inserted into the repo soon)* and `insert them in your code`. This can make your speed-up coding and saves time for searching for the same snippet (e.g.: read from .txt-files) for the thousands time.
+- `Snippets Menu` - this extension is the best of all. It allows you to `save code snippets` in a given format *(file will be inserted into the repo soon)* and `insert them in your code`. This can make you speed-up your coding and saves time for searching for the same snippet (e.g.: read from .txt-files) for the thousands time.
 - `Split Cells Notebook` - this extension allows you to `put two cells next to each other`. This is useful for comparing graphics or outputs.
 - `Table of Contents (2)` - this extension enables you a `table of content` with the *Markdown cell* headers as topics. This is useful for big notebooks
 
@@ -310,7 +315,7 @@ How you structure your folders is your choice, but at the end, it has to be unde
     /models
       /model.py (to separate the model class from the train and save script)
       /train_and_save.py
-      /utils.py (if I need some functions that make the train_and_save script overcrowded)
+      /utils.py (if I need some functions that would make the train_and_save script overcrowded)
   /artifacts
     /model.pkl (saved model)
     /<name>.pkl (if I also need to save an encoder, scaler, ...)
@@ -323,7 +328,7 @@ The advantage of having the same structure in every project is that others can e
 
 ## TPOT library
 
-The TPOT library will save a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertune the models. The [link](http://epistasislab.github.io/tpot/) to there website where they explain in more detail what they exactly do and to there [github repository](https://github.com/EpistasisLab/tpot).
+The TPOT library will save you a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertuning. The [link](http://epistasislab.github.io/tpot/) to their website where they explain in more detail what they exactly do and to their [github repository](https://github.com/EpistasisLab/tpot).
 
 ### installation of tpot
 
