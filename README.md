@@ -43,28 +43,31 @@ Often, you will get specific data for a project and train your model on it; howe
 
 ### (2) data exploration - gain some information about your data
 
-The better you know your dataset, the easier it is for you to understand why your model makes its prediction the way it does. Furthermore, if you know the deficits of your data, you can do something against it.
+The better you know your dataset, the easier it is for you to understand why your model makes its prediction the way it does. Furthermore, if you know the deficits of your data, you can do something about it.
 - NaN cells
 - duplicates
 - balance of target class
 - look into specific rows (some times it reveals dependencies between columns)
 
+**Tip:** You can use libraries that make it easier and faster to explore your data. My personal choice is [bamboolib](https://bamboolib.8080labs.com).
+
 ### (3) data preprocessing - bring the data in a good shape for your model
 
-After step 2, you know now the deficits of your data and you can take actions. You also have to convert text to vectors and encode categorical features so that your model can work with them.
+After step 2, you now know the deficits of your data and you can take actions. You also have to convert text to vectors and encode categorical features so that your model can work with them.
 - delete/fill NaN cells
 - handle duplicates
 - upsample or downsample data
 - convert text to vectors
-- encode/scale/normilize features
+- encode/scale/normalize features
+- feature selection to speed up your models
 - split dataset into train and test data
 
 ### (4) train model - choose a model and train it
 
-There are two main types of models you will probably use: classifier and regressors.
+There are two main types of models you will probably use: classifier and regressor.
 - classifier  (features --> classes)
-  - special case: two classes ([binary classification](https://www.learndatasci.com/glossary/binary-classification/)) --> there are models specificly for this
-  - e.g.: Is a cat, a dog or a horse in the photo?
+  - special case: two classes ([binary classification](https://www.learndatasci.com/glossary/binary-classification/)) --> there are models especially for this
+  - e.g.: Is a cat, a dog, or a horse in the photo?
 - regressor   (features --> values)
   - one can also use regressors for classification --> in some cases this can be helpful
   - e.g.: Based on the profits of the last years, what will be the profit of this year? (sales forecasting)
@@ -74,7 +77,7 @@ There are two main types of models you will probably use: classifier and regress
 - classificationreport and confusionmetrics are helpful to evaluate classifiers
 
 ### (6) repeate steps 3, 4, and 5 - improve the metrics of the model so that it is usable
-- try different preprocessings --> different encoder, scaler, vectorizer or normilizer
+- try different preprocessings --> different encoder, scaler, vectorizer, feature selections, or normalizer
 - hyperparameter tuning of the model
 - try different models
 --> you can do this manually by yourself or use helpful libraries like [TPOT](#tpot) which will do the upper steps for you (code for the tpot classifier/regressor in the *TPOT library* section)
@@ -82,7 +85,7 @@ There are two main types of models you will probably use: classifier and regress
 ## code in scripts/.py-files
 ### (7) create prototype
 
-Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions and different script. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have 
+Now that you have a preprocessing for your data and a model with a good performance, you can bring your code in a production ready form. This means to refactor your code into classes, functions, and different scripts. At the end, you want to have a workflow from running script1 --> script2 --> script3 so that you have 
 
 raw data --> preprocessed data --> train and save model --> deploy model
 
@@ -107,35 +110,35 @@ Anaconda is a collection of useful python packages like sklearn or pandas that y
 
 - [anaconda website](https://www.anaconda.com/products/individual)
 
-if you never heard anything about notebooks and virtual environments, you should start to get to know jupyter notebook first before diving into the more advanced stuff. Therefore just open the `Anaconda Navigator` after installing anaconda and launch jupyter notebook. Try a little bit and after you have a brief overview come back and learn how to set-up your working environment a bit more beneficial :-)
+if you never heard anything about notebooks and virtual environments, you should start to get to know jupyter notebook first before diving into the more advanced stuff. Therefore, just open the `Anaconda Navigator` after installing anaconda and launch jupyter notebook. Try a little bit and afterwards when you have a brief overview, come back and learn how to set-up your working environment a bit more beneficial :-)
 
 <a name="virual_environment"/>
 
 # Step 2: usage of virtual environments
 
-You use the `base` environment when you do commands in the terminal or running py-scripts (if you do not change it). This means that you install (e.g.: with *pip*) all libraries in this environment. That works only until a certain point because the different libraries need different versions of their subpackages and that can produce conflicts. Some of these conflicts can be solved and others not. In the worst case, you cannot use pip anymore and there will be a ton of errors while executing your code. The solution are virtual environments. A virtual environment is a separate environment in which you can install packages and the different environments do not interact with each other. So, you can have for every project a different environment (this brings some advantages that will be mentoined later).
+You use the `base` environment when you do commands in the terminal or running py-scripts (if you do not change it). This means that you install (e.g.: with *pip*) all libraries in this environment. That works only until a certain point because the different libraries need different versions of their subpackages and that can produce conflicts. Some of these conflicts can be solved and others not. In the worst case, you cannot use pip anymore and there will be a ton of errors while executing your code. The solution are virtual environments. A virtual environment is a separate environment in which you can install packages and the different environments do not interact with each other. So, you can have for every project a different environment (this brings some advantages that will be mentioned later).
 
 ## create a virtual environment
 
 First of all, you have to create an environment
 
-```sh
+```
 conda create --name new_env
 ```
 
 Second, you have to activate it (`(base)` should change to `(new_env)` in your terminal)
 
-```sh
+```
 conda activate new_env
 ```
 
 ## save a virtual environment to a .yaml-file
 
-Virtual environments can take quite some storage on your computer that is why you should save an environment to a .yaml-file and delete it when you will not use it in the next time. Furthermore, others that will run your projects will not always have to install all the different libraries you used (this can take some time and nerves). So, when you save your environment and put it to the rest of your code, one can just create this environment from the .yaml-file and start working with all the libraries.
+Virtual environments can take quite some storage on your computer that is why you should save an environment to a .yaml-file and delete it when you will not use it in the next time. Furthermore, others can run your projects without having to install all the different libraries you used (this can take some time and nerves). So, when you save your environment and put it to the rest of your code, one can just create this environment from the .yaml-file and start working with all the libraries.
 
 For saving the environment, you have to `activate` it first and then run the following command. The file will be saved in your current working directory.
 
-```sh
+```
 conda env export > conda.yaml
 ```
 
@@ -143,13 +146,13 @@ conda env export > conda.yaml
 
 The name of the environment is the one inside the .yaml-file.
 
-```sh
+```
 conda env create -f conda.yaml
 ```
 
 ## remove a virtual environment and its dependencies
 
-```sh
+```
 conda remove --name new_env --all
 ```
 
@@ -157,15 +160,21 @@ conda remove --name new_env --all
 
 It is good to have an overview of all the environments to see which one are not needed anymore.
 
-```sh
+```
 conda info --envs
+```
+
+or same result with
+
+```
+conda env list
 ```
 
 ## clone a virtual environment
 
 I recommend not to work in the `base` environment and always to activate a different one. In the `base` environment are all standard libraries installed that one could need (the packages one installed with anaconda) without any conflicts and what I like to do is to clone it. So that you have a new `experimental` environment for example that you can use for testing non-project related stuff. You normally do not do this with project related stuff because the .yaml-files of a project should be minimal.
 
-```sh
+```
 conda create --name new_env --clone env_you_want_to_clone
 ```
 
@@ -186,10 +195,10 @@ There are two ways to launch jupyter notebook:
 
 ### (2) with the terminal
 - open the `terminal`
-- `activate` your environment you want to use
+- `activate` the environment you want to use
 - run in the `terminal` the following command (It will start a localhost)
 
-```sh
+```
 jupyter notebook
 ```
 
@@ -205,7 +214,7 @@ To get these `nbextensions` to know, I recommend to read this [article](https://
 
 To install the extensions in a new environment copy and run the following commands in the terminal:
 
-```sh
+```
 conda create --name exten --clone base
 conda activate exten
 pip install jupyter_contrib_nbextensions
@@ -223,10 +232,10 @@ Nbextensions has a lot of different extensions and all of them are in a way usef
 - `ExecuteTime` - this extension `times the execution` of each code cell and you do not have to use *%%time*
 - `Hinterland` - this extension enables `auto-completion` which makes the programing way faster
 - `Initialization cells` - this extension allows you to mark cells as `initialization cells` that means they are ran when you load the notebook. You can, for example, load libraries or datasets you always need directly (more a quality of life upgrade)
-- `isort formatter` - this extension can `sort your library imports` alphabetically grouped by module import and so (makes the library imports more readable)
+- `isort formatter` - this extension can `sort your library imports` alphabetically grouped by module import (makes the library imports more readable)
 - `Scratchpad` - this extension enables an `expandable cell for quick testing` like current state of a variable (otherwise you always have for the program unnecessary cells that makes the notebook less readable)
 - `ScrollDown` - this extension `automatically scrolls down` when you have a long output (quality of life upgrade)
-- `Snippets Menu` - this extension is the best of all. It allows you to `save code snippets` in a given format *(file will be inserted into the repo soon)* and `insert them in your code`. This can make you speed-up your coding and saves time for searching for the same snippet (e.g.: read from .txt-files) for the thousands time.
+- `Snippets Menu` - this extension is the best of all. It allows you to `save code snippets` in a given format *(file will be inserted into the repo soon)* and `insert them in your code`. This can make you speed-up your coding and saves time of searching the same snippet (e.g.: read from .txt-files) for the thousands time.
 - `Split Cells Notebook` - this extension allows you to `put two cells next to each other`. This is useful for comparing graphics or outputs.
 - `Table of Contents (2)` - this extension enables you a `table of content` with the *Markdown cell* headers as topics. This is useful for big notebooks
 
@@ -249,44 +258,11 @@ if __name__ == "__main__":
   ... (some code that is executed if the script is dircetly ran. It will not be executed if you import functions/class from this script into another)
 ```
 
-It is good to start functions and classes with a `docstring` that describes the parameter and output of a function besides the normal comments because this makes it way easier to read your code. There are some [conventions](https://www.python.org/dev/peps/pep-0257/) how to do this. Furthermore, there is also a huge list with other conventions for coding with python besides this which are called [PEP 8](https://www.python.org/dev/peps/pep-0008/). It is not bad to know some of these, but at the end, you do not have to know all of them and, as long as your code is clean, readable and understandable, you should be fine.
+It is good to start functions and classes with a `docstring` that describes the parameter and output of a function besides the normal comments because this makes it way easier to read your code. There are some [conventions](https://www.python.org/dev/peps/pep-0257/) how to do this. Furthermore, there is also a huge list with other conventions for coding with python besides this which are called [PEP 8](https://www.python.org/dev/peps/pep-0008/). It is not bad to know some of these, but at the end, you do not have to know all of them and, as long as your code is clean, readable, and understandable, you should be fine.
 
 ## recommended libraries for improving your code
 
-I mentioned in the part before that it is import to have readable code, but you do not have to this all by your own. There are some helpful libraries that will support you.
-
-### pip install isort
-
-`isort` is a library to sort imports alphabetically, and automatically separated into sections and by type. You can run it for one file:
-```sh
-isort <filename>.py
-```
-or recursively that means it will run for all files in all subfolder from your current working directory:
-```sh
-isort .
-```
-
-### pip install black
-
-`black` is the uncompromising Python code formatter. It deletes unnecessary whitespaces and formats your lists, dictionaries and similar datatypes. You can run this for one file:
-```sh
-black <filename>.py
-```
-or recursively that means it will run for all files in all subfolder from your current working directory:
-```sh
-black .
-```
-
-### pip install flake8
-
-`flake8` is a tool for style guide enforcement. It outputs you the lines in the script that have a unclean style and how to clean them up. You can run this for one file:
-```sh
-flake8 <filename>.py
-```
-or recursively that means it will run for all files in all subfolder from your current working directory:
-```sh
-flake8 .
-```
+I mentioned in the part before that it is import to have readable code, but you do not have to this all by yourself. There are some helpful libraries that will support you. A list of libraries and commands can you find in my [Code-Testing repo](https://github.com/Priapos1004/Code-Testing).
 
 <a name="tips"/>
 
@@ -307,7 +283,7 @@ How you structure your folders is your choice, but at the end, it has to be unde
   /scripts
     /data_prep
       /data_prep.py
-      /utils.py (some times if I want to separate the preprocessing function when I need a lot of preprocessing)
+      /utils.py (sometimes if I want to separate the preprocessing function when I need a lot of preprocessing)
     /deployment
       /deploy.py
       /consume.py
@@ -328,13 +304,15 @@ The advantage of having the same structure in every project is that others can e
 
 ## TPOT library
 
-The TPOT library will save you a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models and hypertuning. The [link](http://epistasislab.github.io/tpot/) to their website where they explain in more detail what they exactly do and to their [github repository](https://github.com/EpistasisLab/tpot).
+The TPOT library will save you a lot of work. You just have to give the *tpot classifier* or *tpot regressor* your data and it will automatically try different combinations of preprocessing, models, and hypertuning. The [link](http://epistasislab.github.io/tpot/) to their website where they explain in more detail what they exactly do and to their [github repository](https://github.com/EpistasisLab/tpot).
+
+**NOTE:** currently, you cannot use tpot on MacBooks with a M1 (hopefully, this will be fixed soon)
 
 ### installation of tpot
 
 Run the following commands in the terminal:
 
-```sh
+```
 pip install deap update_checker tqdm stopit xgboost
 pip install tpot
 ```
@@ -378,3 +356,5 @@ tpot.export('tpot_boston_pipeline.py')
 ## some nice literature sources
 
 - [Cheatsheets](https://medium.com/@anushkhabajpai/top-data-science-cheat-sheets-ml-dl-python-r-sql-maths-statistics-5239d4568225) for different topics to get an overview
+
+- [list of helpful articles](https://medium.com/@samuel_84225/list/knowledge-13111a7a3d93) for learning about ML and improving your python coding that I extend now and then
